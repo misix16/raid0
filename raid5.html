@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>RAID 5 – Striping z parzystością</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">RAID<span>Notes</span></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="raid1.html">RAID 1</a></li>
+            <li><a href="raid5.html" class="active">RAID 5</a></li>
+            <li><a href="raid10.html">RAID 10</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="page-header">
+        <h1>RAID 5 – striping z parzystością</h1>
+        <p>
+            RAID 5 łączy striping (paski danych) z rozproszoną parzystością, dzięki czemu 
+            oferuje zarówno zwiększoną pojemność, jak i odporność na awarię jednego dysku.
+        </p>
+    </section>
+
+    <section class="content-section">
+        <h2>Wymagania i własności</h2>
+        <ul>
+            <li><strong>Minimalna liczba dysków:</strong> 3</li>
+            <li><strong>Tolerancja awarii:</strong> 1 dysk</li>
+            <li><strong>Efektywna pojemność:</strong> (n-1) × pojemność najmniejszego dysku</li>
+        </ul>
+    </section>
+
+    <section class="content-section alt">
+        <h2>Przykładowy układ danych i parzystości</h2>
+        <div class="ascii-diagram">
+DYSK 1:  D1   D2   P3   D4
+DYSK 2:  D1'  P2   D3'  D4'
+DYSK 3:  P1   D2'  D3   D4''
+        </div>
+        <p>
+            Parzystość (P) pozwala odtworzyć brakujący fragment danych w przypadku awarii jednego dysku.
+        </p>
+    </section>
+
+    <section class="content-section">
+        <h2>Zalety RAID 5</h2>
+        <ul>
+            <li><strong>Dobra równowaga</strong> między bezpieczeństwem, pojemnością i wydajnością.</li>
+            <li><strong>Efektywność pojemności</strong> – tracimy tylko pojemność jednego dysku.</li>
+            <li><strong>Dobry odczyt</strong> – dane rozproszone po wielu dyskach.</li>
+        </ul>
+
+        <h2>Wady RAID 5</h2>
+        <ul>
+            <li><strong>Wolniejszy zapis</strong> z powodu obliczania parzystości.</li>
+            <li><strong>Ryzyko podczas odbudowy</strong> – w czasie rekonstrukcji macierzy obciążenie jest duże.</li>
+            <li><strong>Nie zalecany</strong> dla bardzo małych macierzy lub bardzo małych dysków.</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Notatki o RAID • RAID 5</p>
+</footer>
+</body>
+</html>
