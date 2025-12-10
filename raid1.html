@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>RAID 1 – Mirroring</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">RAID<span>Notes</span></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="raid1.html" class="active">RAID 1</a></li>
+            <li><a href="raid5.html">RAID 5</a></li>
+            <li><a href="raid10.html">RAID 10</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="page-header">
+        <h1>RAID 1 – mirroring (lustrzanie)</h1>
+        <p>
+            RAID 1 zapisuje identyczne dane na dwóch lub więcej dyskach, dzięki czemu awaria 
+            jednego z nich nie powoduje utraty danych.
+        </p>
+    </section>
+
+    <section class="content-section">
+        <h2>Cechy RAID 1</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Zalety</h3>
+                <ul>
+                    <li><strong>Bezpieczeństwo:</strong> dane są zdublowane.</li>
+                    <li><strong>Odczyt:</strong> możliwy z wielu dysków, często szybszy.</li>
+                    <li><strong>Prostota:</strong> łatwy do zrozumienia i wdrożenia.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Wady</h3>
+                <ul>
+                    <li><strong>Pojemność:</strong> tylko połowa sumy dysków.</li>
+                    <li><strong>Koszty:</strong> wymaga podwojonej liczby dysków.</li>
+                    <li><strong>Nie chroni</strong> przed skasowaniem plików przez użytkownika.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section alt">
+        <h2>Schemat działania</h2>
+        <p>
+            Dla dwóch dysków po 1 TB, macierz RAID 1 ma efektywnie 1 TB pojemności, ponieważ 
+            drugi dysk jest pełnym lustrzanym odbiciem pierwszego.
+        </p>
+        <div class="ascii-diagram">
+            DANE: [ A ][ B ][ C ][ D ]
+
+DYSK 1: [ A ][ B ][ C ][ D ]
+DYSK 2: [ A ][ B ][ C ][ D ]
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Zastosowania RAID 1</h2>
+        <ul>
+            <li><strong>Serwery baz danych</strong> – gdzie bardzo ważna jest integralność danych.</li>
+            <li><strong>Małe serwery firmowe</strong> – prosty sposób na ochronę danych.</li>
+            <li><strong>Stacje robocze</strong> – krytyczne projekty (np. grafika, wideo).</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Notatki o RAID • RAID 1</p>
+</footer>
+</body>
+</html>
