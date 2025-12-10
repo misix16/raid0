@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>RAID 10 – Połączenie RAID 1 i 0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">RAID<span>Notes</span></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="raid1.html">RAID 1</a></li>
+            <li><a href="raid5.html">RAID 5</a></li>
+            <li><a href="raid10.html" class="active">RAID 10</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="page-header">
+        <h1>RAID 10 – mirroring + striping</h1>
+        <p>
+            RAID 10 (czasem zapisywany jako RAID 1+0) łączy zalety RAID 1 i RAID 0: 
+            wysoką wydajność oraz bezpieczeństwo danych.
+        </p>
+    </section>
+
+    <section class="content-section">
+        <h2>Jak działa RAID 10?</h2>
+        <p>
+            Najpierw tworzone są pary lustrzane (RAID 1), a następnie na tych parach 
+            wykonywany jest striping (RAID 0). Minimalnie potrzebne są 4 dyski.
+        </p>
+        <div class="ascii-diagram">
+DYSK 1 &amp; 2:  RAID 1 (lustro)
+DYSK 3 &amp; 4:  RAID 1 (lustro)
+
+RAID 0 ponad RAID 1:
+[ DANE rozproszone pomiędzy dwie grupy lustrzane ]
+        </div>
+    </section>
+
+    <section class="content-section alt">
+        <h2>Zalety i wady RAID 10</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Zalety</h3>
+                <ul>
+                    <li><strong>Bardzo wysoka wydajność</strong> – szczególnie przy losowych zapisach.</li>
+                    <li><strong>Wysoka odporność</strong> – awarii może ulec więcej niż jeden dysk,
+                        o ile nie są to oba dyski w tej samej parze.</li>
+                    <li><strong>Dobre dla baz danych, wirtualizacji, serwerów plików.</strong></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Wady</h3>
+                <ul>
+                    <li><strong>Wysoki koszt</strong> – wymaga co najmniej 4 dysków.</li>
+                    <li><strong>Efektywna pojemność</strong> – tylko 50% sumy pojemności.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Notatki o RAID • RAID 10</p>
+</footer>
+</body>
+</html>
