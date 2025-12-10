@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Notatki o macierzach RAID</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">RAID<span>Notes</span></div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Strona główna</a></li>
+            <li><a href="raid1.html">RAID 1</a></li>
+            <li><a href="raid5.html">RAID 5</a></li>
+            <li><a href="raid10.html">RAID 10</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Notatki o macierzach RAID</h1>
+            <p>
+                RAID (Redundant Array of Independent Disks) – technologia łącząca kilka dysków 
+                fizycznych w jedną logiczną całość w celu zwiększenia wydajności, niezawodności 
+                lub obu jednocześnie.
+            </p>
+            <a href="#wprowadzenie" class="btn-primary">Przejdź do wprowadzenia</a>
+        </div>
+        <div class="hero-side">
+            <div class="hero-card">
+                <h2>Co daje RAID?</h2>
+                <ul>
+                    <li><strong>Większą wydajność</strong> – równoległy zapis/odczyt</li>
+                    <li><strong>Redundancję</strong> – ochrona przed awarią dysku</li>
+                    <li><strong>Elastyczność</strong> – różne poziomy dla różnych potrzeb</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="wprowadzenie" class="content-section">
+        <h2>Wprowadzenie do RAID</h2>
+        <p>
+            Macierze RAID są powszechnie stosowane w serwerach, systemach NAS i stacjach roboczych, 
+            gdzie ważne są bezpieczeństwo danych i wydajność. Wyróżniamy różne poziomy RAID, np. 
+            RAID 0, 1, 5, 6, 10, które różnią się sposobem rozmieszczenia danych i nadmiarowości.
+        </p>
+        <p>
+            Ogólna idea: łączymy kilka dysków w jeden logiczny zasób. System widzi „jeden duży dysk”, 
+            a mechanizmy RAID decydują, jak dane są rozrzucane po fizycznych nośnikach.
+        </p>
+
+        <div class="grid-3">
+            <article class="card">
+                <h3>RAID 0 – Striping</h3>
+                <p>
+                    Dane dzielone są na fragmenty (paski) i zapisywane równolegle na dyskach.
+                    Brak redundancji – awaria jednego dysku niszczy całą macierz.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>RAID 1 – Mirroring</h3>
+                <p>
+                    Dane są lustrzane – zapis na dwa (lub więcej) dyski jednocześnie. 
+                    Utrata jednego dysku nie powoduje utraty danych.
+                </p>
+                <a href="raid1.html" class="card-link">Więcej o RAID 1 →</a>
+            </article>
+
+            <article class="card">
+                <h3>RAID 5 – Striping z parzystością</h3>
+                <p>
+                    Dane i informacje parzystości są rozproszone po wszystkich dyskach. 
+                    Pozwala przetrwać awarię jednego dysku.
+                </p>
+                <a href="raid5.html" class="card-link">Więcej o RAID 5 →</a>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section alt">
+        <h2>Porównanie wybranych poziomów RAID</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Poziom RAID</th>
+                    <th>Min. liczba dysków</th>
+                    <th>Ochrona danych</th>
+                    <th>Wydajność</th>
+                    <th>Efektywność pojemności</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>RAID 0</td>
+                    <td>2</td>
+                    <td>Brak</td>
+                    <td>Bardzo wysoka</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>RAID 1</td>
+                    <td>2</td>
+                    <td>Wysoka (lustrzanie)</td>
+                    <td>Odczyt wysoki, zapis średni</td>
+                    <td>50% (przy 2 dyskach)</td>
+                </tr>
+                <tr>
+                    <td>RAID 5</td>
+                    <td>3</td>
+                    <td>Wysoka (parzystość)</td>
+                    <td>Dobry odczyt, zapis obciążony parzystością</td>
+                    <td>(n-1)/n</td>
+                </tr>
+                <tr>
+                    <td>RAID 10</td>
+                    <td>4</td>
+                    <td>Bardzo wysoka</td>
+                    <td>Bardzo dobra</td>
+                    <td>50%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="content-section">
+        <h2>Przykładowa konfiguracja (Linux, mdadm)</h2>
+        <p>
+            Poniżej przykładowe polecenia w bash (LINUX), jak można utworzyć prostą macierz RAID.
+        </p>
+        <pre><code class="code-block">
+# utworzenie macierzy RAID1 z dwóch dysków
+sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
+
+# sprawdzenie statusu macierzy
+cat /proc/mdstat
+
+# utworzenie systemu plików
+sudo mkfs.ext4 /dev/md0
+
+# montowanie
+sudo mkdir /mnt/raid1
+sudo mount /dev/md0 /mnt/raid1
+        </code></pre>
+    </section>
+</main>
+
+<footer>
+    <p>Notatki o RAID • Projekt edukacyjny HTML &amp; CSS</p>
+</footer>
+</body>
+</html>
