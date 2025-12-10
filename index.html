@@ -147,6 +147,44 @@ sudo mkdir /mnt/raid1
 sudo mount /dev/md0 /mnt/raid1
         </code></pre>
     </section>
+    <section class="content-section alt">
+    <h2>Mini Quiz: Sprawdź swoją wiedzę o RAID</h2>
+    <p>Kliknij odpowiedź, aby sprawdzić wynik.</p>
+
+    <div class="card">
+        <p><strong>Pytanie 1:</strong> Który RAID zapewnia lustrzane odbicie danych?</p>
+        <button onclick="check(1, 'dobrze')">RAID 1</button>
+        <button onclick="check(1, 'źle')">RAID 0</button>
+    </div>
+
+    <div class="card">
+        <p><strong>Pytanie 2:</strong> Ile minimalnie dysków wymaga RAID 5?</p>
+        <button onclick="check(2, 'źle')">2</button>
+        <button onclick="check(2, 'dobrze')">3</button>
+    </div>
+
+    <div class="card">
+        <p><strong>Pytanie 3:</strong> RAID 10 łączy cechy:</p>
+        <button onclick="check(3, 'dobrze')">RAID 1 i RAID 0</button>
+        <button onclick="check(3, 'źle')">RAID 5 i RAID 6</button>
+    </div>
+
+    <p id="quiz-result" style="margin-top: 10px; font-weight: bold;"></p>
+</section>
+
+<script>
+function check(question, result) {
+    const output = document.getElementById("quiz-result");
+    if (result === "dobrze") {
+        output.textContent = "✅ Dobrze! Świetna odpowiedź.";
+        output.style.color = "#22c55e";
+    } else {
+        output.textContent = "❌ Źle. Spróbuj ponownie.";
+        output.style.color = "#ef4444";
+    }
+}
+</script>
+
 </main>
 
 <footer>
