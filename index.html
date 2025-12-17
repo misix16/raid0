@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
     <div class="logo">RAID<span>Notes</span></div>
     <nav>
@@ -19,6 +20,8 @@
 </header>
 
 <main>
+
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-text">
             <h1>Notatki o macierzach RAID</h1>
@@ -29,6 +32,7 @@
             </p>
             <a href="#wprowadzenie" class="btn-primary">Przejdź do wprowadzenia</a>
         </div>
+
         <div class="hero-side">
             <div class="hero-card">
                 <h2>Co daje RAID?</h2>
@@ -40,48 +44,47 @@
             </div>
         </div>
     </section>
-  <section class="visual-zone content-section">
-    <h2>Wizualne przedstawienie macierzy RAID</h2>
-    <p>Nowoczesne, trójwymiarowe grafiki przedstawiające działanie RAID 1, RAID 5 i RAID 10.</p>
 
-    <div class="visual-grid">
+    <!-- WIZUALNE PRZEDSTAWIENIE RAID -->
+    <section class="visual-zone content-section">
+        <h2>Wizualne przedstawienie macierzy RAID</h2>
+        <p>Nowoczesne grafiki przedstawiające działanie RAID 1, RAID 5 i RAID 10.</p>
 
-        <div class="visual-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/RAID.svg/512px-RAID.svg.png" alt="Infografika RAID">
-            <h3>Infografika RAID – widok ogólny</h3>
-            <p>Ogólny schemat przedstawiający ideę macierzy RAID.</p>
+        <div class="visual-grid">
+
+            <div class="visual-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/RAID.svg/512px-RAID.svg.png" alt="Infografika RAID">
+                <h3>Infografika RAID – widok ogólny</h3>
+                <p>Ogólny schemat przedstawiający ideę macierzy RAID.</p>
+            </div>
+
+            <div class="visual-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/RAID_1.svg/512px-RAID_1.svg.png" alt="RAID 1 Mirroring">
+                <h3>RAID 1 – Mirroring</h3>
+                <p>Wizualizacja lustrzanego zapisu danych na dwóch dyskach.</p>
+            </div>
+
+            <div class="visual-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/RAID_5.svg/512px-RAID_5.svg.png" alt="RAID 5 Parity">
+                <h3>RAID 5 – Striping + Parzystość</h3>
+                <p>Graficzne przedstawienie rozproszonej parzystości i równoległego zapisu.</p>
+            </div>
+
+            <div class="visual-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RAID_10.svg/512px-RAID_10.svg.png" alt="RAID 10 Layout">
+                <h3>RAID 10 – Połączenie RAID 1 i 0</h3>
+                <p>Wizualizacja łącząca striping i mirroring w jednej macierzy.</p>
+            </div>
+
         </div>
+    </section>
 
-        <div class="visual-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/RAID_1.svg/512px-RAID_1.svg.png" alt="RAID 1 Mirroring">
-            <h3>RAID 1 – Mirroring</h3>
-            <p>Wizualizacja lustrzanego zapisu danych na dwóch dyskach.</p>
-        </div>
-
-        <div class="visual-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/RAID_5.svg/512px-RAID_5.svg.png" alt="RAID 5 Parity">
-            <h3>RAID 5 – Striping + Parzystość</h3>
-            <p>Graficzne przedstawienie rozproszonej parzystości i równoległego zapisu.</p>
-        </div>
-
-        <div class="visual-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/RAID_10.svg/512px-RAID_10.svg.png" alt="RAID 10 Layout">
-            <h3>RAID 10 – Połączenie RAID 1 i 0</h3>
-            <p>Wizualizacja łącząca striping i mirroring w jednej macierzy.</p>
-        </div>
-
-    </div>
-</section>
-
-
-
-
+    <!-- WPROWADZENIE -->
     <section id="wprowadzenie" class="content-section">
         <h2>Wprowadzenie do RAID</h2>
         <p>
             Macierze RAID są powszechnie stosowane w serwerach, systemach NAS i stacjach roboczych, 
-            gdzie ważne są bezpieczeństwo danych i wydajność. Wyróżniamy różne poziomy RAID, np. 
-            RAID 0, 1, 5, 6, 10, które różnią się sposobem rozmieszczenia danych i nadmiarowości.
+            gdzie ważne są bezpieczeństwo danych i wydajność.
         </p>
         <p>
             Ogólna idea: łączymy kilka dysków w jeden logiczny zasób. System widzi „jeden duży dysk”, 
@@ -91,34 +94,24 @@
         <div class="grid-3">
             <article class="card">
                 <h3>RAID 0 – Striping</h3>
-                <p>
-                    Dane dzielone są na fragmenty (paski) i zapisywane równolegle na dyskach.
-                    Brak redundancji – awaria jednego dysku niszczy całą macierz.
-                </p>
+                <p>Dane dzielone są na fragmenty i zapisywane równolegle. Brak redundancji.</p>
             </article>
 
             <article class="card">
                 <h3>RAID 1 – Mirroring</h3>
-                <p>
-                    Dane są lustrzane – zapis na dwa (lub więcej) dyski jednocześnie. 
-                    Utrata jednego dysku nie powoduje utraty danych.
-                </p>
+                <p>Dane są lustrzane – zapis na dwa dyski jednocześnie.</p>
                 <a href="raid1.html" class="card-link">Więcej o RAID 1 →</a>
             </article>
 
             <article class="card">
                 <h3>RAID 5 – Striping z parzystością</h3>
-                <p>
-                    Dane i informacje parzystości są rozproszone po wszystkich dyskach. 
-                    Pozwala przetrwać awarię jednego dysku.
-                </p>
+                <p>Dane i parzystość rozproszone po wszystkich dyskach.</p>
                 <a href="raid5.html" class="card-link">Więcej o RAID 5 →</a>
             </article>
         </div>
     </section>
-    
 
-
+    <!-- TABELA -->
     <section class="content-section alt">
         <h2>Porównanie wybranych poziomów RAID</h2>
         <table>
@@ -132,118 +125,89 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>RAID 0</td>
-                    <td>2</td>
-                    <td>Brak</td>
-                    <td>Bardzo wysoka</td>
-                    <td>100%</td>
-                </tr>
-                <tr>
-                    <td>RAID 1</td>
-                    <td>2</td>
-                    <td>Wysoka (lustrzanie)</td>
-                    <td>Odczyt wysoki, zapis średni</td>
-                    <td>50% (przy 2 dyskach)</td>
-                </tr>
-                <tr>
-                    <td>RAID 5</td>
-                    <td>3</td>
-                    <td>Wysoka (parzystość)</td>
-                    <td>Dobry odczyt, zapis obciążony parzystością</td>
-                    <td>(n-1)/n</td>
-                </tr>
-                <tr>
-                    <td>RAID 10</td>
-                    <td>4</td>
-                    <td>Bardzo wysoka</td>
-                    <td>Bardzo dobra</td>
-                    <td>50%</td>
-                </tr>
+                <tr><td>RAID 0</td><td>2</td><td>Brak</td><td>Bardzo wysoka</td><td>100%</td></tr>
+                <tr><td>RAID 1</td><td>2</td><td>Wysoka</td><td>Wysoka</td><td>50%</td></tr>
+                <tr><td>RAID 5</td><td>3</td><td>Wysoka</td><td>Dobra</td><td>(n-1)/n</td></tr>
+                <tr><td>RAID 10</td><td>4</td><td>Bardzo wysoka</td><td>Bardzo dobra</td><td>50%</td></tr>
             </tbody>
         </table>
     </section>
 
+    <!-- KONFIGURACJA -->
     <section class="content-section">
         <h2>Przykładowa konfiguracja (Linux, mdadm)</h2>
-        <p>
-            Poniżej przykładowe polecenia w bash (LINUX), jak można utworzyć prostą macierz RAID.
-        </p>
         <pre><code class="code-block">
-# utworzenie macierzy RAID1 z dwóch dysków
 sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
-
-# sprawdzenie statusu macierzy
 cat /proc/mdstat
-
-# utworzenie systemu plików
 sudo mkfs.ext4 /dev/md0
-
-# montowanie
 sudo mkdir /mnt/raid1
 sudo mount /dev/md0 /mnt/raid1
         </code></pre>
     </section>
+
+    <!-- QUIZ -->
     <section class="content-section alt">
-    <h2>Mini Quiz: Sprawdź swoją wiedzę o RAID</h2>
-    <p>Kliknij odpowiedź, aby sprawdzić wynik.</p>
+        <h2>Mini Quiz: Sprawdź swoją wiedzę o RAID</h2>
 
-    <div class="card">
-        <p><strong>Pytanie 1:</strong> Który RAID zapewnia lustrzane odbicie danych?</p>
-        <button onclick="check(1, 'dobrze')">RAID 1</button>
-        <button onclick="check(1, 'źle')">RAID 0</button>
-    </div>
+        <div class="card">
+            <p><strong>Pytanie 1:</strong> Który RAID zapewnia lustrzane odbicie danych?</p>
+            <button onclick="check(1, 'dobrze')">RAID 1</button>
+            <button onclick="check(1, 'źle')">RAID 0</button>
+        </div>
 
-    <div class="card">
-        <p><strong>Pytanie 2:</strong> Ile minimalnie dysków wymaga RAID 5?</p>
-        <button onclick="check(2, 'źle')">2</button>
-        <button onclick="check(2, 'dobrze')">3</button>
-    </div>
+        <div class="card">
+            <p><strong>Pytanie 2:</strong> Ile minimalnie dysków wymaga RAID 5?</p>
+            <button onclick="check(2, 'źle')">2</button>
+            <button onclick="check(2, 'dobrze')">3</button>
+        </div>
 
-    <div class="card">
-        <p><strong>Pytanie 3:</strong> RAID 10 łączy cechy:</p>
-        <button onclick="check(3, 'dobrze')">RAID 1 i RAID 0</button>
-        <button onclick="check(3, 'źle')">RAID 5 i RAID 6</button>
-    </div>
+        <div class="card">
+            <p><strong>Pytanie 3:</strong> RAID 10 łączy cechy:</p>
+            <button onclick="check(3, 'dobrze')">RAID 1 i RAID 0</button>
+            <button onclick="check(3, 'źle')">RAID 5 i RAID 6</button>
+        </div>
 
-    <p id="quiz-result" style="margin-top: 10px; font-weight: bold;"></p>
-</section>
+        <p id="quiz-result" style="margin-top: 10px; font-weight: bold;"></p>
+    </section>
 
-<script>
-function check(question, result) {
-    const output = document.getElementById("quiz-result");
-    if (result === "dobrze") {
-        output.textContent = "✅ Dobrze! Świetna odpowiedź.";
-        output.style.color = "#22c55e";
-    } else {
-        output.textContent = "❌ Źle. Spróbuj ponownie.";
-        output.style.color = "#ef4444";
+    <script>
+    function check(question, result) {
+        const output = document.getElementById("quiz-result");
+        if (result === "dobrze") {
+            output.textContent = "Dobrze! Świetna odpowiedź.";
+            output.style.color = "#22c55e";
+        } else {
+            output.textContent = "Źle. Spróbuj ponownie.";
+            output.style.color = "#ef4444";
+        }
     }
-}
-</script>
-<section class="content-section">
-    <h2>FAQ – Najczęściej zadawane pytania</h2>
+    </script>
 
-    <details>
-        <summary>Czy RAID zastępuje backup?</summary>
-        <p>Nie. RAID chroni przed awarią dysku, ale nie przed błędami użytkownika, wirusami czy usunięciem danych.</p>
-    </details>
+    <!-- FAQ -->
+    <section class="content-section">
+        <h2>FAQ – Najczęściej zadawane pytania</h2>
 
-    <details>
-        <summary>Czy mogę mieszać dyski o różnych pojemnościach?</summary>
-        <p>Można, ale macierz wykorzysta pojemność najmniejszego dysku.</p>
-    </details>
+        <details>
+            <summary>Czy RAID zastępuje backup?</summary>
+            <p>Nie. RAID chroni przed awarią dysku, ale nie przed błędami użytkownika.</p>
+        </details>
 
-    <details>
-        <summary>Co się stanie, gdy dysk w RAID 5 ulegnie awarii?</summary>
-        <p>Macierz działa dalej, ale wolniej. Należy jak najszybciej wymienić dysk i odbudować macierz.</p>
-    </details>
-</section>
+        <details>
+            <summary>Czy mogę mieszać dyski o różnych pojemnościach?</summary>
+            <p>Można, ale macierz wykorzysta pojemność najmniejszego dysku.</p>
+        </details>
+
+        <details>
+            <summary>Co się stanie, gdy dysk w RAID 5 ulegnie awarii?</summary>
+            <p>Macierz działa dalej, ale wolniej. Należy wymienić dysk i odbudować macierz.</p>
+        </details>
+    </section>
 
 </main>
 
 <footer>
     <p>Notatki o RAID • Projekt edukacyjny HTML &amp; CSS</p>
 </footer>
+
 </body>
 </html>
